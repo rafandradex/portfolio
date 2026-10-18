@@ -4,35 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
+    <title>Rafael Gaspar | Portfólio de Desenvolvimento Web</title>
+
+    <meta name="description"
+        content="Conhece os projetos de Rafael Gaspar, estudante de programação em Portugal com foco em desenvolvimento web.">
+
+    <meta name="color-scheme" content="dark light">
+
+    <meta property="og:locale" content="pt_PT">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rafael Gaspar | Portfólio de Desenvolvimento Web">
+    <meta property="og:description" content="Explora os meus projetos, conhece o meu percurso e entra em contacto.">
+
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <script>
+        (() => {
+            let tema = "dark";
+
+            try {
+                tema = localStorage.getItem("tema") === "light"
+                    ? "light"
+                    : "dark";
+            } catch {
+                // O site continua a funcionar sem armazenamento local.
+            }
+
+            document.documentElement.classList.toggle(
+                "light-theme",
+                tema === "light"
+            );
+
+            document.documentElement.style.colorScheme = tema;
+        })();
+    </script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="top">
     <header>
         <div class="container">
-            <h1>Portfolio</h1>
-            <button class="open_menu"><i class="bi bi-list"></i></button>
-            <nav class="hidden_menu" id="navbar">
+            <a href="#inicio" class="marca">Rafael Gaspar<span>.</span></a>
+            <button class="open_menu" type="button" aria-label="Abrir menu" aria-controls="navbar"
+                aria-expanded="false">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <nav class="hidden_menu" id="navbar" aria-label="Navegação principal">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre_mim">Sobre mim</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#perguntas">Perguntas</a></li>
+                    <li><a href="#percurso">Percurso</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li>
-                        <button class="btn tema_site"><i class="bi bi-brightness-high-fill"></i></button>
+                        <button class="btn tema_site" type="button" aria-label="Ativar tema claro">
+                            <i class="bi bi-brightness-high-fill" aria-hidden="true"></i>
+                        </button>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <section class="banner" id="inicio">
-            <img src="img/banner.jpg" alt="Banner sobre programalão">
+        <section class="hero container" id="inicio" aria-labelledby="hero-title">
+            <div class="hero_conteudo">
+                <span class="hero_etiqueta">ESTUDANTE DE PROGRAMAÇÃO · PORTUGAL</span>
+
+                <h1 id="hero-title">
+                    Olá, sou o <span>Rafael Gaspar.</span>
+                </h1>
+
+                <p class="hero_descricao">
+                    Desenvolvo sites e aplicações que dão vida a ideias.
+                    Estou a construir o meu percurso no desenvolvimento web,
+                    com o objetivo de me tornar programador full stack.
+                </p>
+
+                <div class="hero_acoes">
+                    <a href="#portfolio" class="hero_btn hero_btn_principal">
+                        Ver projetos
+                        <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://github.com/rafandradex" class="hero_btn hero_btn_secundario" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+                        GitHub
+                        <span class="hero_sr_only">(abre num novo separador)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero_retrato">
+                <img src="img/foto.jpeg" alt="Rafael Gaspar" width="320" height="320" fetchpriority="high">
+                <span class="hero_legenda">Aprender. Construir. Evoluir.</span>
+            </div>
         </section>
         <section class="sobre_mim container" id="sobre_mim">
             <h2 class="titleSections">Sobre mim</h2>
@@ -42,19 +118,29 @@
                         <img src="img/foto.jpeg" alt="Foto de Rafael Gaspar">
                         <div class="minhas_info_texto">
                             <h3>Rafael Gaspar</h3>
-                            <p>Estudante</p>
+                            <p>Estudante de programação</p>
                         </div>
                     </div>
                     <div class="sobre_mim_estatisticas">
                         <ul class="estatistica_lista minhas_estatisticas">
                             <li><span id="numeroDeProjetos">0</span> PROJETOS</li>
-                            <li><span id="numeroDeAnos">0</span> ANOS</li>
-                            <li><span id="numeroDeLinguagens">0</span> LINGUAGENS</li>
+                            <li>
+                                <span id="numeroDeAnos">0</span>
+                                ANOS DESDE O INÍCIO
+                            </li>
+                            <li><span>Web</span> FOCO ATUAL</li>
                         </ul>
                     </div>
                     <div class="sobre_mim_docs">
-                        <button><i class="bi bi-download"></i>Dowload CV</button>
-                        <button><i class="bi bi-envelope"></i>Contact</button>
+                        <a href="docs/rafael-gaspar-cv.pdf" download>
+                            <i class="bi bi-download" aria-hidden="true"></i>
+                            Descarregar CV
+                        </a>
+
+                        <a href="#contacto">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            Contactar
+                        </a>
                     </div>
                     <div class="sobre_mim_redes_sociais">
                         <ul class="redes_sociais">
@@ -67,24 +153,36 @@
                     </div>
                 </aside>
                 <div class="sobre_mim_texto">
-                    <h3>Transformando ideias em realidade digital</h3>
-                    <p>Meu nome é Rafael. Sou estudante e o meu sonho é tornar-me programador full stack ou
-                        desenvolvedor de
-                        jogos.</p>
-                    <p>Sempre fui apaixonado por jogos, e essa paixão levou-me a começar a programar servidores de GTA
-                        RP. Foi
-                        assim que iniciei a minha jornada na programação. Desde então, tenho expandido os meus
-                        conhecimentos e
-                        comecei a desenvolver sites. Programar é algo que realmente me encanta e me faz esquecer o mundo
-                        à minha
-                        volta.</p>
+                    <div class="sobre_mim_texto">
+                        <h3>Dos jogos ao desenvolvimento web</h3>
+
+                        <p>
+                            Sou o Rafael Gaspar, estudante de programação em Portugal.
+                            Desenvolvo sites e aplicações e estou a aprofundar os meus
+                            conhecimentos para me tornar programador full stack.
+                        </p>
+
+                        <p>
+                            O interesse pelos jogos levou-me a explorar a programação
+                            de servidores de GTA RP. Desde então, comecei a desenvolver
+                            projetos para a web, passando de páginas pessoais a websites
+                            para empresas e comunidades.
+                        </p>
+
+                        <p>
+                            Gosto de aprender através da prática: experimentar ideias,
+                            resolver problemas e melhorar cada projeto com o que vou
+                            aprendendo.
+                        </p>
+                    </div>
                 </div>
                 <div class="sobre_mim_card">
                     <div class="sobre_mim_card_item">
-                        <i class="bi bi-briefcase"></i>
+                        <i class="bi bi-code-slash" aria-hidden="true"></i>
+
                         <div class="sobre_mim_card_item_texto">
-                            <span>EXPERIÊNCIA</span>
-                            <strong>2 ANOS</strong>
+                            <span>PRIMEIROS PASSOS</span>
+                            <strong>Programação desde 2021</strong>
                         </div>
                     </div>
                     <div class="sobre_mim_card_item">
@@ -107,68 +205,117 @@
                 volta.</p>
         </section> -->
         <section class="portfolio container" id="portfolio">
-            <h2 class="titleSections">Portfolio</h2>
+            <h2 class="titleSections">Projetos em destaque</h2>
+
+            <p class="projetos_intro">
+                Uma seleção dos websites que desenvolvi para empresas,
+                comunidades e projetos sociais.
+            </p>
+
             <div class="portfolio_cards"></div>
         </section>
-        <section class="linguagens_utilizadas container">
-            <h2 class="titleSections">Linguagens Utilizadas</h2>
-            <div class="linguagens_lista">
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-html" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zm-9.736 7.35v3.999h-.791v-1.714H1.79v1.714H1V11.85h.791v1.626h1.682V11.85h.79Zm2.251.662v3.337h-.794v-3.337H4.588v-.662h3.064v.662zm2.176 3.337v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596H9.93L8.79 11.85h-.805v3.999zm4.71-.674h1.696v.674H12.61V11.85h.79v3.325Z" />
-                        </svg></div>
-                    <div>HTML</div>
-                </div>
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-css" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.397 14.841a1.13 1.13 0 0 0 .401.823q.195.162.478.252.284.091.665.091.507 0 .859-.158.354-.158.539-.44.187-.284.187-.656 0-.336-.134-.56a1 1 0 0 0-.375-.357 2 2 0 0 0-.566-.21l-.621-.144a1 1 0 0 1-.404-.176.37.37 0 0 1-.144-.299q0-.234.185-.384.188-.152.512-.152.214 0 .37.068a.6.6 0 0 1 .246.181.56.56 0 0 1 .12.258h.75a1.1 1.1 0 0 0-.2-.566 1.2 1.2 0 0 0-.5-.41 1.8 1.8 0 0 0-.78-.152q-.439 0-.776.15-.337.149-.527.421-.19.273-.19.639 0 .302.122.524.124.223.352.367.228.143.539.213l.618.144q.31.073.463.193a.39.39 0 0 1 .152.326.5.5 0 0 1-.085.29.56.56 0 0 1-.255.193q-.167.07-.413.07-.175 0-.32-.04a.8.8 0 0 1-.248-.115.58.58 0 0 1-.255-.384zM.806 13.693q0-.373.102-.633a.87.87 0 0 1 .302-.399.8.8 0 0 1 .475-.137q.225 0 .398.097a.7.7 0 0 1 .272.26.85.85 0 0 1 .12.381h.765v-.072a1.33 1.33 0 0 0-.466-.964 1.4 1.4 0 0 0-.489-.272 1.8 1.8 0 0 0-.606-.097q-.534 0-.911.223-.375.222-.572.632-.195.41-.196.979v.498q0 .568.193.976.197.407.572.626.375.217.914.217.439 0 .785-.164t.55-.454a1.27 1.27 0 0 0 .226-.674v-.076h-.764a.8.8 0 0 1-.118.363.7.7 0 0 1-.272.25.9.9 0 0 1-.401.087.85.85 0 0 1-.478-.132.83.83 0 0 1-.299-.392 1.7 1.7 0 0 1-.102-.627zM6.78 15.29a1.2 1.2 0 0 1-.111-.449h.764a.58.58 0 0 0 .255.384q.106.073.25.114.142.041.319.041.245 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.152-.12-.463-.193l-.618-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.527-.422t.777-.149q.456 0 .779.152.326.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.246-.181.9.9 0 0 0-.37-.068q-.324 0-.512.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .404.175l.621.143q.326.075.566.211t.375.358.135.56q0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375" />
-                        </svg></div>
-                    <div>CSS</div>
-                </div>
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-js" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V14a2 2 0 0 1-2 2H8v-1h4a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.186 15.29a1.2 1.2 0 0 1-.111-.449h.765a.58.58 0 0 0 .255.384q.105.073.249.114.143.041.319.041.246 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.151-.12-.462-.193l-.619-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.528-.422.336-.15.776-.149.457 0 .78.152.324.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.247-.181.9.9 0 0 0-.369-.068q-.325 0-.513.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .405.175l.62.143q.327.075.566.211.24.136.375.358t.135.56q0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375m-3.104-.033A1.3 1.3 0 0 1 0 14.791h.765a.6.6 0 0 0 .073.27.5.5 0 0 0 .454.246q.285 0 .422-.164.138-.165.138-.466v-2.745h.79v2.725q0 .66-.357 1.005-.354.345-.984.345a1.6 1.6 0 0 1-.569-.094 1.15 1.15 0 0 1-.407-.266 1.1 1.1 0 0 1-.243-.39" />
-                        </svg></div>
-                    <div>JAVASCRIPT</div>
-                </div>
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-tsx" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.172 14.841a1.13 1.13 0 0 0 .401.823q.193.162.478.252.283.091.665.091.507 0 .858-.158.354-.158.54-.44a1.17 1.17 0 0 0 .187-.656q0-.336-.135-.56a1 1 0 0 0-.375-.357 2 2 0 0 0-.566-.21l-.62-.144a1 1 0 0 1-.405-.176.37.37 0 0 1-.144-.299q0-.234.185-.384.188-.152.513-.152.213 0 .369.068a.6.6 0 0 1 .246.181.56.56 0 0 1 .12.258h.75a1.1 1.1 0 0 0-.2-.566 1.2 1.2 0 0 0-.5-.41 1.8 1.8 0 0 0-.78-.152q-.438 0-.776.15-.336.149-.527.421-.19.273-.19.639 0 .302.122.524.124.223.352.367.228.143.54.213l.617.144q.311.073.463.193a.39.39 0 0 1 .152.326.5.5 0 0 1-.084.29.56.56 0 0 1-.255.193 1.1 1.1 0 0 1-.413.07q-.177 0-.32-.04a.8.8 0 0 1-.249-.115.58.58 0 0 1-.255-.384zm-1.244 1.09v-3.337h1.136v-.662H0v.662h1.134v3.337zm7.076-3.999h.893l-1.274 2.007 1.254 1.992h-.909l-.85-1.415h-.034l-.853 1.415H6.37l1.239-2.016-1.228-1.983h.932l.832 1.438h.035z" />
-                        </svg></div>
-                    <div>TYPESCRIPT</div>
-                </div>
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-jsx" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.075 14.841a1.13 1.13 0 0 0 .401.823q.194.162.478.252.284.091.665.091.507 0 .858-.158.355-.158.54-.44a1.17 1.17 0 0 0 .187-.656q0-.336-.135-.56a1 1 0 0 0-.375-.357 2 2 0 0 0-.565-.21l-.621-.144a1 1 0 0 1-.405-.176.37.37 0 0 1-.143-.299q0-.234.184-.384.188-.152.513-.152.214 0 .37.068a.6.6 0 0 1 .245.181.56.56 0 0 1 .12.258h.75a1.1 1.1 0 0 0-.199-.566 1.2 1.2 0 0 0-.5-.41 1.8 1.8 0 0 0-.78-.152q-.44 0-.776.15-.337.149-.528.421-.19.273-.19.639 0 .302.123.524t.351.367q.229.143.54.213l.618.144q.31.073.462.193a.39.39 0 0 1 .153.326.5.5 0 0 1-.085.29.56.56 0 0 1-.255.193q-.167.07-.413.07-.176 0-.32-.04a.8.8 0 0 1-.248-.115.58.58 0 0 1-.255-.384zM0 14.791q0 .247.082.466.083.22.243.39.165.17.407.267.246.093.569.093.63 0 .984-.346.357-.345.358-1.004v-2.725h-.791v2.745q0 .302-.138.466t-.422.164a.5.5 0 0 1-.454-.246.6.6 0 0 1-.073-.27zm8.907-2.859H9.8l-1.274 2.007L9.78 15.93h-.908l-.85-1.415h-.035l-.853 1.415h-.861l1.24-2.016-1.228-1.983h.931l.832 1.438h.036l.823-1.438Z" />
-                        </svg></div>
-                    <div>REACT</div>
-                </div>
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-php" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.182.185.522m4.48 2.666V11.85h-.79v1.626H4.153V11.85h-.79v3.999h.79v-1.714h1.682v1.714zm.703-3.999h1.6q.433 0 .732.179.3.175.46.477.158.302.158.677t-.161.677q-.159.299-.463.474a1.45 1.45 0 0 1-.733.173H8.12v1.342h-.791zm2.06 1.714a.8.8 0 0 0 .084-.381q0-.34-.184-.521-.184-.182-.513-.182h-.66v1.406h.66a.8.8 0 0 0 .375-.082.57.57 0 0 0 .237-.24Z" />
-                        </svg></div>
-                    <div>PHP</div>
-                </div>
-                <div class="linguagem_item">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                            class="bi bi-filetype-cs" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14 4.5V14a2 2 0 0 1-2 2H8v-1h4a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.629 15.29a1.2 1.2 0 0 1-.112-.449h.765a.58.58 0 0 0 .255.384q.105.073.249.114t.32.041q.245 0 .412-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.152-.326q-.153-.12-.463-.193l-.618-.143a1.7 1.7 0 0 1-.54-.214 1 1 0 0 1-.35-.367 1.1 1.1 0 0 1-.124-.524q0-.366.19-.639.191-.272.528-.422t.776-.149q.458 0 .78.152.324.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.246-.181.9.9 0 0 0-.37-.068q-.324 0-.512.152a.47.47 0 0 0-.185.384q0 .18.144.3a1 1 0 0 0 .404.175l.621.143q.325.075.566.211t.375.358.134.56q0 .37-.187.656a1.2 1.2 0 0 1-.54.439q-.351.158-.858.158a2.2 2.2 0 0 1-.665-.09 1.4 1.4 0 0 1-.477-.252 1.1 1.1 0 0 1-.29-.375m-2.72-2.23a1.7 1.7 0 0 0-.103.633v.495q0 .369.102.627a.83.83 0 0 0 .299.392.85.85 0 0 0 .478.132.86.86 0 0 0 .4-.088.7.7 0 0 0 .273-.249.8.8 0 0 0 .118-.363h.764v.076a1.27 1.27 0 0 1-.225.674q-.205.29-.551.454a1.8 1.8 0 0 1-.785.164q-.54 0-.914-.217a1.4 1.4 0 0 1-.572-.626Q0 14.756 0 14.188v-.498q0-.569.196-.979a1.44 1.44 0 0 1 .572-.633q.378-.222.91-.222.33 0 .607.097.281.093.49.272a1.32 1.32 0 0 1 .465.964v.073h-.764a.85.85 0 0 0-.12-.38.7.7 0 0 0-.273-.261.8.8 0 0 0-.398-.097.8.8 0 0 0-.475.138.87.87 0 0 0-.302.398Z" />
-                        </svg></div>
-                    <div>C#</div>
-                </div>
+        <section class="competencias container" id="competencias" aria-labelledby="competencias-titulo">
+
+            <h2 class="titleSections" id="competencias-titulo">
+                Tecnologias e ferramentas
+            </h2>
+
+            <p class="competencias_intro">
+                As tecnologias com que trabalho e as que estou a explorar
+                ao longo do meu percurso.
+            </p>
+
+            <div class="competencias_grelha">
+                <article class="competencia_card">
+                    <div class="competencia_cabecalho">
+                        <i class="bi bi-window" aria-hidden="true"></i>
+                        <h3>Desenvolvimento web</h3>
+                    </div>
+
+                    <dl class="competencias_lista">
+                        <div>
+                            <dt>HTML e CSS</dt>
+                            <dd>
+                                Estruturação de páginas, criação de layouts
+                                responsivos e adaptação a diferentes ecrãs.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>JavaScript</dt>
+                            <dd>
+                                Interatividade, manipulação do DOM e lógica
+                                de funcionamento das aplicações.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>PHP</dt>
+                            <dd>
+                                Desenvolvimento no servidor e ligação
+                                a bases de dados em projetos escolares.
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="competencia_card">
+                    <div class="competencia_cabecalho">
+                        <i class="bi bi-tools" aria-hidden="true"></i>
+                        <h3>Dados e ferramentas</h3>
+                    </div>
+
+                    <dl class="competencias_lista">
+                        <div>
+                            <dt>Bases de dados</dt>
+                            <dd>
+                                Organização, consulta e armazenamento
+                                dos dados utilizados pelas aplicações.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Git e GitHub</dt>
+                            <dd>
+                                Controlo de versões e organização
+                                do código dos meus projetos.
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="competencia_card">
+                    <div class="competencia_cabecalho">
+                        <i class="bi bi-book" aria-hidden="true"></i>
+                        <h3>Em aprendizagem</h3>
+                    </div>
+
+                    <dl class="competencias_lista">
+                        <div>
+                            <dt>React</dt>
+                            <dd>
+                                Criação de interfaces com componentes
+                                e gestão do estado da aplicação.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>TypeScript</dt>
+                            <dd>
+                                Exploração de tipagem para tornar
+                                o código JavaScript mais claro e previsível.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>C#</dt>
+                            <dd>
+                                Exploração da linguagem com interesse
+                                no desenvolvimento de jogos.
+                            </dd>
+                        </div>
+                    </dl>
+                </article>
             </div>
         </section>
         <!-- <section class="estatistica container">
@@ -178,72 +325,139 @@
                 <li><span id="numeroDeLinguagens">0</span> Linguagens</li>
             </ul>
         </section> -->
-        <section class="perguntas container" id="perguntas">
-            <h2 class="titleSections">Perguntas</h2>
-            <div class="perguntas_accordion">
-                <details class="perguntas_accordion_item" name="exclusive">
-                    <summary>Este site está a ser criado como??</summary>
-                    <p>Este site está a ser desenvolvido na linguagem <strong>HTML</strong> e <strong>CSS</strong>.</p>
-                </details>
-                <details class="perguntas_accordion_item" name="exclusive">
-                    <summary>Qual é o meu conhecimento na área??</summary>
-                    <p>A minha primeira linguagem foi <strong>python</strong> que aprendi a <strong>27 de junho de
-                            2021</strong>. Atualmente tenho mais conhecimento em Web, meu primeiro curso de Web foi
-                        de <strong>HTML</strong> e <strong>CSS</strong>. Nas minhas ferias de verão de 2024 eu
-                        paguei uma plataforma de curso de programaçao e foi la que comecei a aprender
-                        <strong>JAVASCRIPT</strong> e nas ferias de verão de 2025 comecei a aprender
-                        <strong>REACT</strong> no qual é a linguagem que eu não sei a 100% e a linguagem que comecei
-                        a mexer recentemente foi <strong>C# (C Sharp)</strong>. Na escola aprendi
-                        <strong>PHP</strong>, melhorei meus conhecimentos em <strong>JAVASCRIPT</strong> e a prendir
-                        a mexer com base de dados, com arquivos <strong>DB</strong>. Este ano de 2026 nas ferias de
-                        verão irei aprofundar meu conhecimento em <strong>REACT</strong> e
-                        <strong>TYPESCRIPT</strong>, no final das ferias de verão quero aprofundar meu conhecimento
-                        de <strong>C# (C Sharp)</strong> para futuramente conseguir criar um jogos.
+        <section class="percurso container" id="percurso" aria-labelledby="percurso-titulo">
+
+            <h2 class="titleSections" id="percurso-titulo">O meu percurso</h2>
+
+            <p class="percurso_intro">
+                Aprendo a construir, um projeto de cada vez.
+                Estas são algumas etapas do meu caminho na programação.
+            </p>
+
+            <ol class="percurso_lista">
+                <li class="percurso_item">
+                    <span class="percurso_data">2021</span>
+
+                    <div>
+                        <h3>Primeiro contacto com programação</h3>
+                        <p>
+                            Comecei a aprender Python e a explorar os conceitos
+                            fundamentais da programação.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="percurso_item">
+                    <span class="percurso_data">2024</span>
+
+                    <div>
+                        <h3>Aprofundar o desenvolvimento web</h3>
+                        <p>
+                            Depois dos primeiros passos com HTML e CSS,
+                            comecei a estudar JavaScript para acrescentar
+                            interatividade e lógica aos meus projetos.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="percurso_item">
+                    <span class="percurso_data">2025</span>
+
+                    <div>
+                        <h3>Explorar novas ferramentas</h3>
+                        <p>
+                            Comecei a aprender React e explorei C#.
+                            Na escola, desenvolvi conhecimentos de PHP,
+                            JavaScript e bases de dados.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="percurso_item">
+                    <span class="percurso_data">Atualmente</span>
+
+                    <div>
+                        <h3>Aplicar o que aprendo</h3>
+                        <p>
+                            Desenvolvo projetos para empresas, comunidades
+                            e iniciativas sociais, enquanto continuo a melhorar
+                            as minhas competências em desenvolvimento web.
+                        </p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+        <section class="contacto container" id="contacto" aria-labelledby="contacto-titulo">
+
+            <h2 class="titleSections" id="contacto-titulo">Contacto</h2>
+
+            <div class="contacto_painel">
+                <div class="contacto_texto">
+                    <span class="contacto_etiqueta">VAMOS CONVERSAR</span>
+
+                    <h3>Tens uma ideia ou uma oportunidade?</h3>
+
+                    <p>
+                        Entra em contacto para falar sobre um projeto,
+                        colaborar ou conhecer melhor o meu trabalho.
                     </p>
-                </details>
+                </div>
+
+                <div class="contacto_links">
+                    <a class="contacto_link" href="mailto:rafaelag2008@gmail.com">
+                        <i class="bi bi-envelope" aria-hidden="true"></i>
+
+                        <span>
+                            <strong>Email</strong>
+                            <span>rafaelag2008@gmail.com</span>
+                        </span>
+
+                        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="contacto_link" href="https://github.com/rafandradex" target="_blank"
+                        rel="noopener noreferrer" aria-label="Ver o GitHub de Rafael Gaspar (abre num novo separador)">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+
+                        <span>
+                            <strong>GitHub</strong>
+                            <span>Explora os meus repositórios</span>
+                        </span>
+
+                        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
         </section>
-     <!--   <section class="contacto container" id="contacto">
-            <h2 class="titleSections">Contacto</h2>
-            <form action="">
-                <div class="dados_usuario">
-                    <fieldset>
-                        <label>Nome:</label>
-                        <input type="text" required>
-                    </fieldset>
-                    <fieldset>
-                        <label>Email</label>
-                        <input type="email" required>
-                    </fieldset>
-                </div>
-                <div class="assunto_select">
-                    <label>Assunto</label>
-                    <select name="" id="" required>
-                        <option value="">Ajuda</option>
-                        <option value="">Problema</option>
-                        <option value="">Serviço</option>
-                    </select>
-                </div>
-                <fieldset>
-                    <label>Mensagem</label>
-                    <textarea name="" id="" required></textarea>
-                </fieldset>
-                <button type="submit">Enviar formulario</button>
-            </form>
-        </section>-->
     </main>
+
+    <a href="#top" class="botao-topo" aria-label="Voltar ao topo">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    <footer>
+        <div class="rodape container">
+            <p>Portfólio de Rafael Gaspar</p>
+
+            <ul class="redes_sociais">
+                <li>
+                    <a href="https://www.instagram.com/rafandradex_/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram de Rafael Gaspar (abre num novo separador)">
+                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/rafandradex" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub de Rafael Gaspar (abre num novo separador)">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
 </body>
-<a href="#top" class="botao-topo" aria-label="Voltar ao topo">↑</a>
-<footer>
-    <div class="rodape container">
-        <p>Site portfolio de Rafael Gaspar</p>
-        <ul class="redes_sociais">
-            <li><a href="https://www.instagram.com/rafandradex_/" target="_blank"><i class="bi bi-instagram"></i></a>
-            </li>
-            <li><a href="https://github.com/rafandradex" target="_blank"><i class="bi bi-github"></i></a></li>
-        </ul>
-    </div>
-</footer>
-<script type="module" src="script.js"></script>
 
 </html>
